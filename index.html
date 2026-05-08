@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manoj Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#efefef;
+      --text:#111111;
+      --red:#e10600;
+      --yellow:#f1d45b;
+      --blue:#295ad6;
+      --border:#111111;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:100%;
+      max-width:1280px;
+      margin:auto;
+      padding:0 24px;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    .navbar{
+      border-bottom:2px solid #111;
+      background:#efefef;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav-wrapper{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 0;
+      gap:20px;
+    }
+
+    .logo{
+      font-size:2rem;
+      font-weight:900;
+      color:var(--red);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:40px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      font-size:0.95rem;
+      font-weight:800;
+      position:relative;
+    }
+
+    .nav-links a.active{
+      color:var(--red);
+    }
+
+    .nav-links a.active::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:100%;
+      height:3px;
+      background:var(--red);
+    }
+
+    .talk-btn{
+      padding:12px 24px;
+      border:2px solid #111;
+      background:var(--yellow);
+      font-weight:800;
+      font-size:0.8rem;
+      transition:0.3s ease;
+    }
+
+    .talk-btn:hover{
+      transform:translate(-3px,-3px);
+      box-shadow:5px 5px 0 #111;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+
+    .hero{
+      padding:70px 0;
+      border-bottom:2px solid #111;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      background:var(--blue);
+      color:#fff;
+      padding:8px 18px;
+      font-size:0.75rem;
+      font-weight:800;
+      border:2px solid #111;
+      margin-bottom:30px;
+    }
+
+    .hero-title{
+      font-size:5rem;
+      line-height:0.95;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:28px;
+    }
+
+    .highlight{
+      display:inline-block;
+      background:var(--yellow);
+      color:var(--red);
+      padding:6px 0px;
+    }
+
+    .hero-desc{
+      font-size:1rem;
+      line-height:1.8;
+      max-width:520px;
+      margin-bottom:35px;
+      color:#333;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+      padding:18px 28px;
+      border:2px solid #111;
+      font-weight:800;
+      font-size:0.9rem;
+      transition:0.3s ease;
+    }
+
+    .primary-btn{
+      background:var(--red);
+      color:#fff;
+    }
+
+    .secondary-btn{
+      background:#fff;
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover{
+      transform:translate(-4px,-4px);
+      box-shadow:6px 6px 0 #111;
+    }
+
+    /* HERO IMAGE */
+
+    .hero-image-wrap{
+      position:relative;
+    }
+
+    .hero-image-box{
+      border:2px solid #111;
+      overflow:hidden;
+      background:#ddd;
+      position:relative;
+    }
+
+    .hero-image-box img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+
+    .floating-box{
+      position:absolute;
+      border:2px solid #111;
+      padding:18px;
+      font-weight:900;
+      line-height:1.1;
+      text-transform:uppercase;
+      box-shadow:5px 5px 0 #111;
+    }
+
+    .floating-box span{
+      display:block;
+      font-size:2rem;
+      margin-bottom:6px;
+    }
+
+    .yellow-box{
+      background:var(--yellow);
+      top:-20px;
+      right:-20px;
+    }
+
+    .blue-box{
+      background:var(--blue);
+      color:#fff;
+      bottom:-20px;
+      left:-20px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services{
+      padding:100px 0;
+      border-bottom:2px solid #111;
+    }
+
+    .section-tag{
+      display:inline-block;
+      background:var(--yellow);
+      border:2px solid #111;
+      padding:8px 14px;
+      font-size:0.75rem;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+
+    .section-title{
+      font-size:4rem;
+      font-weight:900;
+      text-transform:uppercase;
+      line-height:1;
+      margin-bottom:20px;
+    }
+
+    .red-text{
+      color:var(--red);
+    }
+
+    .section-desc{
+      max-width:700px;
+      line-height:1.8;
+      color:#444;
+      margin-bottom:50px;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border:2px solid #111;
+    }
+
+    .service-card{
+      padding:40px 28px;
+      border-right:2px solid #111;
+      min-height:320px;
+      background:#efefef;
+    }
+
+    .service-card:last-child{
+      border-right:none;
+    }
+
+    .service-card h3{
+      font-size:1.6rem;
+      margin:25px 0 18px;
+      text-transform:uppercase;
+      line-height:1.1;
+    }
+
+    .service-card p{
+      line-height:1.7;
+      margin-bottom:25px;
+      color:#444;
+    }
+
+    .service-card ul{
+      list-style:none;
+    }
+
+    .service-card ul li{
+      margin-bottom:12px;
+      font-weight:700;
+      font-size:0.9rem;
+    }
+
+    /* =========================
+       PROCESS
+    ========================== */
+
+    .process{
+      padding:90px 0;
+      background:var(--blue);
+      border-bottom:2px solid #111;
+    }
+
+    .process .section-title{
+      color:#fff;
+      text-align:center;
+    }
+
+    .process .section-tag{
+      display:block;
+      width:max-content;
+      margin:0 auto 20px;
+      background:var(--red);
+      color:#fff;
+    }
+
+    .process-grid{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:30px;
+    }
+
+    .process-card{
+      background:#efefef;
+      border:2px solid #111;
+      padding:40px 20px;
+      text-align:center;
+      box-shadow:6px 6px 0 #111;
+    }
+
+    .process-card.active{
+      background:var(--red);
+      color:#fff;
+    }
+
+    .process-card.yellow{
+      background:var(--yellow);
+    }
+
+    .process-card span{
+      font-size:0.8rem;
+      font-weight:700;
+      display:block;
+      margin-bottom:12px;
+    }
+
+    .process-card h3{
+      font-size:2rem;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects{
+      padding:100px 0;
+      border-bottom:2px solid #111;
+    }
+
+    .project-top{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .view-btn{
+      padding:14px 24px;
+      border:2px solid #111;
+      background:#fff;
+      font-weight:800;
+    }
+
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+    }
+
+    .project-card{
+      border:2px solid #111;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .project-image{
+      /* height:260px; */
+      background:#ddd;
+    }
+
+    .project-content{
+      padding:28px;
+    }
+
+    .project-content h3{
+      font-size:2rem;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .project-content p{
+      line-height:1.7;
+      color:#444;
+      margin-bottom:18px;
+    }
+
+    .project-link{
+      color:var(--red);
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:0.9rem;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact{
+      padding:100px 0;
+      border-bottom:2px solid #111;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    .contact-title{
+      font-size:5rem;
+      line-height:0.95;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:40px;
+    }
+
+    .contact-info{
+      margin-top:40px;
+    }
+
+    .contact-item{
+      margin-bottom:25px;
+      font-weight:700;
+      font-size:1.1rem;
+    }
+
+    .contact-form{
+      background:#dcdcdc;
+      border:2px solid #111;
+      padding:40px;
+      box-shadow:8px 8px 0 #111;
+    }
+
+    .input-group{
+      margin-bottom:22px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:10px;
+      font-size:0.85rem;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .input-group input,
+    .input-group textarea{
+      width:100%;
+      padding:18px;
+      border:2px solid #111;
+      background:#efefef;
+      font-family:inherit;
+      font-size:1rem;
+      resize:none;
+      outline:none;
+    }
+
+    .submit-btn{
+      width:100%;
+      padding:18px;
+      background:var(--red);
+      border:2px solid #111;
+      color:#fff;
+      font-weight:800;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s ease;
+    }
+
+    .submit-btn:hover{
+      transform:translate(-3px,-3px);
+      box-shadow:5px 5px 0 #111;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+      background:#101010;
+      color:#fff;
+      padding:80px 0 30px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:40px;
+      margin-bottom:50px;
+    }
+
+    .footer-logo{
+      font-size:3rem;
+      font-weight:900;
+      color:var(--red);
+      margin-bottom:20px;
+    }
+
+    .footer-col h4{
+      margin-bottom:22px;
+      color:var(--red);
+      text-transform:uppercase;
+    }
+
+    .footer-col ul{
+      list-style:none;
+    }
+
+    .footer-col ul li{
+      margin-bottom:14px;
+      color:#d5d5d5;
+    }
+
+    .footer-bottom{
+      border-top:1px solid #333;
+      padding-top:25px;
+      text-align:center;
+      color:#999;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:1100px){
+
+      .hero-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .service-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .project-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .process-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-title,
+      .contact-title{
+        font-size:4rem;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .nav-wrapper{
+        flex-direction:column;
+      }
+
+      .nav-links{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        padding:60px 0 100px;
+      }
+
+      .hero-grid{
+        gap:50px;
+      }
+
+      .hero-title,
+      .contact-title{
+        font-size:3rem;
+      }
+
+      .section-title{
+        font-size:2.5rem;
+      }
+
+      .service-grid,
+      .project-grid,
+      .process-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .service-card{
+        border-right:none;
+        border-bottom:2px solid #111;
+      }
+
+      .service-card:last-child{
+        border-bottom:none;
+      }
+
+      .project-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .floating-box{
+        transform:scale(0.8);
+      }
+
+      .yellow-box{
+        right:-10px;
+      }
+
+      .blue-box{
+        left:-10px;
+      }
+
+      .contact-form{
+        padding:24px;
+      }
+
+    }
+
+    @media(max-width:500px){
+
+      .container{
+        padding:0 18px;
+      }
+
+      .hero-title,
+      .contact-title{
+        font-size:2.3rem;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .primary-btn,
+      .secondary-btn{
+        width:100%;
+        text-align:center;
+      }
+
+      /* .floating-box{
+        position:relative;
+        display:inline-block;
+        margin-top:15px;
+        left:0%;
+        right: 0;;
+        top:0%;
+        bottom:0%;
+      } */
+
+      .yellow-box {
+        transform: translateX(20px) scale(0.7);
+      }
+
+      .blue-box {
+        transform: translateX(-30px) scale(0.7);
+      }
+
+
+      .hero-image-wrap{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+    <div class="container nav-wrapper">
+
+      <div class="logo">MANOJ.</div>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">HOME</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#projects">WORK</a></li>
+        <li><a href="#process">PROCESS</a></li>
+      </ul>
+
+      <a href="#" class="talk-btn">LET'S TALK</a>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div class="hero-content">
+
+        <div class="hero-tag">HEY THERE I'M MANOJ 👋</div>
+
+        <h1 class="hero-title">
+          I DESIGN & BUILD <br>
+          <span class="highlight">HIGH-CONVERTING</span><br>
+          WEBSITES
+        </h1>
+
+        <p class="hero-desc">
+          I help businesses grow online with fast, modern and conversion-focused
+          websites that turn visitors into customers.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#" class="primary-btn">CHAT ON WHATSAPP</a>
+          <a href="#" class="secondary-btn">VIEW MY WORK</a>
+        </div>
+
+      </div>
+
+      <div class="hero-image-wrap">
+
+        <div class="hero-image-box">
+
+          <!-- YOUR HERO IMAGE -->
+          <img src="./Gemini_Generated_Image_2v4trr2v4trr2v4t.png" alt="Manoj">
+
+        </div>
+
+        <div class="floating-box yellow-box">
+          <span>3+</span>
+          YEARS EXPERIENCE
+        </div>
+
+        <div class="floating-box blue-box">
+          <span>20+</span>
+          PROJECTS DELIVERED
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="services" id="services">
+
+    <div class="container">
+
+      <div class="section-tag">WHAT I DO</div>
+
+      <h2 class="section-title">
+        SERVICES THAT DRIVE <span class="red-text">RESULTS</span>
+      </h2>
+
+      <p class="section-desc">
+        I offer end-to-end web design and development services focused on
+        creating fast, modern and conversion-driven websites for your business.
+      </p>
+
+      <div class="service-grid">
+
+        <div class="service-card">
+          <h3>Website Design</h3>
+          <p>I design modern and user-friendly websites that capture attention.</p>
+
+          <ul>
+            <li>✔ UI/UX Design</li>
+            <li>✔ Figma Design</li>
+            <li>✔ Responsive</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Website Development</h3>
+          <p>I build modern and scalable websites using clean code.</p>
+
+          <ul>
+            <li>✔ HTML/CSS/JS</li>
+            <li>✔ Webflow/Framer</li>
+            <li>✔ Custom Code</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Conversion Optimization</h3>
+          <p>I optimize websites to turn visitors into customers.</p>
+
+          <ul>
+            <li>✔ SEO Best Practices</li>
+            <li>✔ Speed Optimization</li>
+            <li>✔ Better CTA UX</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Maintenance & Support</h3>
+          <p>I keep your website secure and running smoothly.</p>
+
+          <ul>
+            <li>✔ Bug Fixes</li>
+            <li>✔ Monitoring</li>
+            <li>✔ Security</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROCESS -->
+
+  <section class="process" id="process">
+
+    <div class="container">
+
+      <div class="section-tag">MY PROCESS</div>
+
+      <h2 class="section-title">FUNCTIONAL EXECUTION</h2>
+
+      <div class="process-grid">
+
+        <div class="process-card">
+          <span>STEP 01</span>
+          <h3>Discuss</h3>
+        </div>
+
+        <div class="process-card active">
+          <span>STEP 02</span>
+          <h3>Design</h3>
+        </div>
+
+        <div class="process-card yellow">
+          <span>STEP 03</span>
+          <h3>Develop</h3>
+        </div>
+
+        <div class="process-card">
+          <span>STEP 04</span>
+          <h3>Deliver</h3>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section class="projects" id="projects">
+
+    <div class="container">
+
+      <div class="project-top">
+
+        <div>
+          <div class="section-tag" style="background:#295ad6;color:#fff;">
+            MY WORK
+          </div>
+
+          <h2 class="section-title">SELECTED PROJECTS</h2>
+        </div>
+
+        <a href="#" class="view-btn">VIEW ALL PROJECTS</a>
+
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="./screencapture-Nexoraschool-landing-page.png" alt="">
+          </div>
+
+          <div class="project-content">
+            <h3>NEXORA SCHOOL</h3>
+            <p>
+              A modern school website with admission and showcase functionality.
+            </p>
+
+            <a href="#" class="project-link">VIEW CASE STUDY →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="./NeuroNova--Landing--page_.png" alt="">
+          </div>
+
+          <div class="project-content">
+            <h3>NEURONOVA CLINIC</h3>
+            <p>
+              A modern clinic website to showcase services and facilities.
+            </p>
+
+            <a href="#" class="project-link">VIEW CASE STUDY →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="./savvora-landing page-screencapture..png" alt="">
+          </div>
+
+          <div class="project-content">
+            <h3>SAVVORA RESTAURANT</h3>
+            <p>
+              Restaurant landing page focused on conversion and UX.
+            </p>
+
+            <a href="#" class="project-link">VIEW CASE STUDY →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <div class="container contact-grid">
+
+      <div>
+
+        <div class="section-tag">GET IN TOUCH</div>
+
+        <h2 class="contact-title">
+          LET'S BUILD <br>
+          <span class="red-text">SOMETHING AMAZING</span><br>
+          TOGETHER
+        </h2>
+
+        <div class="contact-info">
+
+          <div class="contact-item">
+            📞 +91 8489994968
+          </div>
+
+          <div class="contact-item">
+            ✉️ manojkuamrsomala@gmail.com
+          </div>
+
+          <div class="contact-item">
+            📍 Nellore, India
+          </div>
+
+        </div>
+
+      </div>
+
+      <form class="contact-form">
+
+        <div class="input-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jonathan Doe">
+        </div>
+
+        <div class="input-group">
+          <label>Mobile Number</label>
+          <input type="text" placeholder="+91 00000 00000">
+        </div>
+
+        <div class="input-group">
+          <label>Your Message</label>
+          <textarea rows="6" placeholder="Tell me about your project..."></textarea>
+        </div>
+
+        <button class="submit-btn">SEND MESSAGE</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-logo">MANOJ.</div>
+
+          <p style="line-height:1.8;color:#cfcfcf;max-width:350px;">
+            I design and build high-converting websites that help businesses
+            grow online and achieve better results.
+          </p>
+        </div>
+
+        <div class="footer-col">
+
+          <h4>Quick Links</h4>
+
+          <ul>
+            <li>Services</li>
+            <li>Projects</li>
+            <li>About Me</li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h4>Services</h4>
+
+          <ul>
+            <li>Web Design</li>
+            <li>Development</li>
+            <li>SEO</li>
+            <li>Support</li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h4>Contact</h4>
+
+          <ul>
+            <li>Nellore, India</li>
+            <li>manojportfolio.com</li>
+            <li>+91 84899 49968</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 MANOJ. BUILT ON BAUHAUS PRINCIPLES.
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
